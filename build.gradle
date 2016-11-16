@@ -1,18 +1,31 @@
 group = 'com.bugvm'
 version = '1.0.0'
 
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    }
+
+    dependencies {
+        classpath "com.bugvm:bugvm-gradle:1.1.19-SNAPSHOT"
+    }
+}
+
 apply plugin: 'application'
 apply plugin: 'groovy'
 apply plugin: 'scala'
+apply plugin: 'bugvm'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 //use this for Java Example
-//mainClassName = "FireJava"
+mainClassName = "FireJava"
 
 //use this for Groovy Example
-mainClassName = "FireGroovy"
+//mainClassName = "FireGroovy"
 
 //use this for Scala Example
 //mainClassName = "FireScala"
@@ -34,40 +47,17 @@ task wrapper(type: Wrapper) {
     gradleVersion = '3.2'
 }
 
-task bugJava (type:Exec, dependsOn: installDist) {
-    workingDir "build/install/${project.name}"
-
-    commandLine "bash", "-c", "bugvm -verbose -cp lib/${project.name}-${project.version}.jar -d bin -o j FireJava"
+launchConsole {
+    dependsOn build
+    doLast {
+        copy {
+            from("build/bugvm.tmp/$mainClassName")
+            into "bin"
+        }
+        println "binary executable is 'bin/$mainClassName'"
+    }
 }
 
-task runJava (type:Exec, dependsOn: bugJava) {
-    workingDir "build/install/${project.name}/bin"
-
-    commandLine "bash", "-c", "./j"
-}
-
-task bugGroovy (type:Exec, dependsOn: installDist) {
-    workingDir "build/install/${project.name}"
-
-    commandLine "bash", "-c", "bugvm -verbose -cp lib/${project.name}-${project.version}.jar:lib/groovy-all-2.4.7.jar -d bin -o g FireGroovy"
-}
-
-task runGroovy (type:Exec, dependsOn: bugGroovy) {
-    workingDir "build/install/${project.name}/bin"
-
-    commandLine "bash", "-c", "./g"
-
-}
-
-task bugScala (type:Exec, dependsOn: installDist) {
-    workingDir "build/install/${project.name}"
-
-    commandLine "bash", "-c", "bugvm -verbose -cp lib/${project.name}-${project.version}.jar:lib/scala-library-2.11.8.jar -d bin -o s FireScala"
-}
-
-task runScala (type:Exec, dependsOn: bugScala) {
-    workingDir "build/install/${project.name}/bin"
-
-    commandLine "bash", "-c", "./s"
-
+clean {
+    delete 'bin'
 }
