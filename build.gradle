@@ -1,0 +1,66 @@
+group = 'com.bugvm'
+version = '1.0.0'
+
+apply plugin: 'application'
+apply plugin: 'groovy'
+apply plugin: 'scala'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+mainClassName = "FireGroovy"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies {
+
+    compile localGroovy()
+    compile 'org.scala-lang:scala-library:2.11.8'
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2'
+}
+
+task bugJava (type:Exec, dependsOn: installDist) {
+    workingDir "build/install/${project.name}"
+
+    commandLine "bash", "-c", "bugvm -verbose -cp lib/${project.name}-${project.version}.jar -d bin -o j FireJava"
+}
+
+task runJava (type:Exec, dependsOn: bugJava) {
+    workingDir "build/install/${project.name}/bin"
+
+    commandLine "bash", "-c", "./j"
+}
+
+task bugGroovy (type:Exec, dependsOn: installDist) {
+    workingDir "build/install/${project.name}"
+
+    commandLine "bash", "-c", "bugvm -verbose -cp lib/${project.name}-${project.version}.jar:lib/groovy-all-2.4.7.jar -d bin -o g FireGroovy"
+}
+
+task runGroovy (type:Exec, dependsOn: bugGroovy) {
+    workingDir "build/install/${project.name}/bin"
+
+    commandLine "bash", "-c", "./g"
+
+}
+
+task bugScala (type:Exec, dependsOn: installDist) {
+    workingDir "build/install/${project.name}"
+
+    commandLine "bash", "-c", "bugvm -verbose -cp lib/${project.name}-${project.version}.jar:lib/scala-library-2.11.8.jar -d bin -o s FireScala"
+}
+
+task runScala (type:Exec, dependsOn: bugScala) {
+    workingDir "build/install/${project.name}/bin"
+
+    commandLine "bash", "-c", "./s"
+
+}
