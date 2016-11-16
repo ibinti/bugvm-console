@@ -8,7 +8,14 @@ apply plugin: 'scala'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
+//use this for Java Example
+//mainClassName = "FireJava"
+
+//use this for Groovy Example
 mainClassName = "FireGroovy"
+
+//use this for Scala Example
+//mainClassName = "FireScala"
 
 repositories {
     mavenLocal()
