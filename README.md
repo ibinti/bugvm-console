@@ -1,5 +1,13 @@
 # Gradle HelloWorld Example
 
+### System Requirements
+
+macOS or Ubuntu 16.04 (64-bit)
+
+JDK 7 or Higher
+
+
+
 ### Java Example
 
 Change mainClassName in build.gradle to "FireJava", and then
