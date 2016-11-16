@@ -1,18 +1,18 @@
 # Gradle HelloWorld Example
 
-To run HelloWorld Java Example with Systtem JRE
+To run HelloWorld Java Example with System JRE
 
 Change mainClassName in build.gradle to "FireJava", and then
 
 ./gradlew run
 
-To run HelloWorld Groovy Example with Systtem JRE
+To run HelloWorld Groovy Example with System JRE
 
 Change mainClassName in build.gradle to "FireGroovy", and then
 
 ./gradlew run
 
-To run HelloWorld Scala Example with Systtem JRE
+To run HelloWorld Scala Example with System JRE
 
 Change mainClassName in build.gradle to "FireScala", and then
 
