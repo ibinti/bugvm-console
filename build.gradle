@@ -5,11 +5,11 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     }
 
     dependencies {
-        classpath "com.bugvm:bugvm-gradle:1.1.19-SNAPSHOT"
+        classpath 'com.bugvm:bugvm-gradle:1.2.1-SNAPSHOT'
     }
 }
 
