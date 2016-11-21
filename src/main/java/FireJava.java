@@ -2,7 +2,8 @@ class FireJava {
 
 	public static void main(String[] args) {
 
-		System.out.println("Hello Java BugVM!!");
+		System.out.println("Hello Java BugVM!");
+
 	}
 
 }
