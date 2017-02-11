@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.bugvm:bugvm-gradle:1.2.1-SNAPSHOT'
+        classpath 'com.bugvm:bugvm-gradle:1.2.3-SNAPSHOT'
     }
 }
 
@@ -22,13 +22,15 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 //use this for Java Example
-mainClassName = "FireJava"
+//mainClassName = "FireJava"
 
 //use this for Groovy Example
-//mainClassName = "FireGroovy"
+mainClassName = "FireGroovy"
 
 //use this for Scala Example
 //mainClassName = "FireScala"
+
+
 
 repositories {
     mavenLocal()
@@ -40,11 +42,12 @@ dependencies {
 
     compile localGroovy()
     compile 'org.scala-lang:scala-library:2.11.8'
+    compile "junit:junit:4.12"
 
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.2'
+    gradleVersion = '3.2.1'
 }
 
 launchConsole {
@@ -60,4 +63,31 @@ launchConsole {
 
 clean {
     delete 'bin'
+}
+
+bugvm {
+//    ios {
+//        forcelinkclasses = [ 'SQLite.**.*' ]
+//    }
+}
+
+sourceSets {
+
+    test {
+        java {
+            srcDirs = ["src/test"]
+        }
+        groovy {
+            srcDirs = ["src/test"]
+        }
+
+    }
+
+}
+
+test {
+    exclude "**/Core*"
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
 }

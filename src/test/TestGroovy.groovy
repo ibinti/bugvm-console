@@ -1,9 +1,10 @@
-class FireGroovy {
+import org.junit.Test
 
-    static void main(String... args) {
+class TestGroovy {
+
+    @Test void main() {
 
         println 'Hello Groovy BugVM!'
-
 
         String stringFromDatabase = 'Hello ${nameKey}!'.toString()
         String nameString = 'world'

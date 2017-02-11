@@ -1,0 +1,8 @@
+<config>
+<!--    <forceLinkClasses>
+        <pattern>groovy.lang.**.*</pattern>
+        <pattern>org.codehaus.groovy.**.*</pattern>
+        <pattern>groovyjarjarasm.asm.**.*</pattern>
+        <pattern>org.apache.**.*</pattern>
+    </forceLinkClasses>-->
+</config>
