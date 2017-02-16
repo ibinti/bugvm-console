@@ -15,10 +15,21 @@ apt install libcap-dev
 ```
 
 
-### Java Example
+### Example
 
+```
+git clone https://github.com/bugvm/bugvm-helloworld
+cd bugvm-helloworld
+```
+
+To run the app
+
+```
 ./gradlew run
+```
 
-To execute native console executable
+To build and execute native console executable, Natie binary will be in `bin` directory.
 
+```
 ./gradlew launchConsole
+```
