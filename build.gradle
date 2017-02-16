@@ -22,10 +22,10 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 //use this for Java Example
-//mainClassName = "FireJava"
+mainClassName = "FireJava"
 
 //use this for Groovy Example
-mainClassName = "FireGroovy"
+//mainClassName = "FireGroovy"
 
 //use this for Scala Example
 //mainClassName = "FireScala"
