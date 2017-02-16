@@ -2,33 +2,20 @@
 
 ### System Requirements
 
-macOS or Ubuntu 16.04 (64-bit)
-
 JDK 7 or Higher
 
+On macOS, Xcode is needed to build.
+
+On Ubuntu 16.04 (64-bit), install following build tools
+
+```
+apt install git
+apt install g++
+apt install libcap-dev
+```
 
 
 ### Java Example
-
-Change mainClassName in build.gradle to "FireJava", and then
-
-./gradlew run
-
-To execute native console executable
-
-./gradlew launchConsole
-
-
-### Groovy Example
-
-Change mainClassName in build.gradle to "FireGroovy", and then
-
-./gradlew run
-
-
-### Scala Example
-
-Change mainClassName in build.gradle to "FireScala", and then
 
 ./gradlew run
 
