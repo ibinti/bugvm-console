@@ -28,7 +28,7 @@ To run the app
 ./gradlew run
 ```
 
-To build and execute native console executable, Natie binary will be in `bin` directory.
+To build and execute native console executable.
 
 ```
 ./gradlew launchConsole
