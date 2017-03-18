@@ -2,9 +2,7 @@
 
 ### System Requirements
 
-JDK 7 or Higher
-
-On macOS, Xcode is needed to build.
+On macOS, Xcode and JDK8 are needed to build.
 
 On Ubuntu 16.04 (64-bit), install following minimum build tools
 
