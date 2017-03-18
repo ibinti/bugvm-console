@@ -38,6 +38,8 @@ task wrapper(type: Wrapper) {
     distributionType = Wrapper.DistributionType.ALL
 }
 
+defaultTasks "launchConsole"
+
 launchConsole {
     dependsOn build
     doLast {

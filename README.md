@@ -38,14 +38,9 @@ git clone https://github.com/bugvm/bugvm-helloworld
 cd bugvm-helloworld
 ```
 
-To run the app
-
-```
-./gradlew run
-```
 
 To build and execute native console executable.
 
 ```
-./gradlew launchConsole
+./gradlew
 ```
