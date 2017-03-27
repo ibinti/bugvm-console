@@ -4,8 +4,8 @@ version = "1.0.0"
 buildscript {
     repositories {
         //mavenLocal()
-        mavenCentral()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        mavenCentral()
     }
 
     dependencies {
@@ -23,8 +23,8 @@ mainClassName = "FireJava"
 
 repositories {
     //mavenLocal()
-    mavenCentral()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    mavenCentral()
 }
 
 dependencies {
@@ -70,5 +70,12 @@ test {
     //exclude "**/Core*"
     testLogging {
         events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
+
+
+task listJars {
+    doLast {
+        configurations.runtime.each { File file -> println file.name }
     }
 }
