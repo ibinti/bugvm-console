@@ -3,13 +3,13 @@ version = "1.0.0"
 
 buildscript {
     repositories {
-        //mavenLocal()
+        mavenLocal()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         mavenCentral()
     }
 
     dependencies {
-        classpath "com.bugvm:bugvm-gradle:1.1.19-SNAPSHOT"
+        classpath "com.bugvm:bugvm-gradle:1.2.3"
     }
 }
 
@@ -22,7 +22,7 @@ targetCompatibility = 1.7
 mainClassName = "FireJava"
 
 repositories {
-    //mavenLocal()
+    mavenLocal()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     mavenCentral()
 }
