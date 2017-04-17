@@ -24,7 +24,6 @@ You may need following build tools depending on your Ubuntu.
  apt install zlib1g-dev
  apt install openjdk-8-jdk
  apt install g++-multilib
- apt install gcc-multilib
  apt install libxml2-dev
  ```
 
