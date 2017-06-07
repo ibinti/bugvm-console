@@ -18,12 +18,8 @@ On Ubuntu 16.04 (64-bit), you may need following build tools.
  ```
 
 
-
-
-
 To build and execute native console executable.
 
 ```
-cd bugvm-helloworld/Java
 ./gradlew -q
 ```

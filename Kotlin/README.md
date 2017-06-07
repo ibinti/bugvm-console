@@ -19,14 +19,7 @@ On Ubuntu 16.04 (64-bit), you may need following build tools.
  ```
 
 
-### Example
-
-```
-git clone https://github.com/bugvm/bugvm-helloworld
-cd bugvm-helloworld/Kotlin
-```
-
-To build and execute native console executable.
+### Build and execute native console executable
 
 ```
 ./gradlew -q
