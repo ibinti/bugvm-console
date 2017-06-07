@@ -2,6 +2,9 @@ group = "com.bugvm"
 version = "1.0.1"
 
 buildscript {
+    ext {
+        bugvm_version = "1.2.3"
+    }
     repositories {
         mavenLocal()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
@@ -9,7 +12,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.bugvm:bugvm-gradle:1.2.3"
+        classpath "com.bugvm:bugvm-gradle:${bugvm_version}"
     }
 }
 
@@ -19,16 +22,12 @@ apply plugin: "bugvm"
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
-mainClassName = "HelloJava"
+mainClassName = "HelloWorld"
 
 repositories {
     mavenLocal()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     mavenCentral()
-}
-
-dependencies {
-
 }
 
 task wrapper(type: Wrapper) {
@@ -42,10 +41,10 @@ launchConsole {
     dependsOn build
     doLast {
         copy {
-            from("build/bugvm.tmp/$mainClassName")
+            from("build/bugvm.tmp/${mainClassName}")
             into "bin"
         }
-        println "binary executable is 'bin/$mainClassName'"
+        println "binary executable is 'bin/${mainClassName}'"
     }
 }
 
