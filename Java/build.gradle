@@ -1,33 +1,8 @@
 group = "com.bugvm"
 version = "1.0.1"
 
-buildscript {
-    ext {
-        bugvm_version = "1.2.4"
-    }
-    repositories {
-        mavenLocal()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath "com.bugvm:bugvm-gradle:${bugvm_version}"
-    }
-}
-
-apply plugin: "application"
-apply plugin: "bugvm"
-
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
-
-mainClassName = "HelloWorld"
-
-repositories {
-    mavenLocal()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-    mavenCentral()
+build {
+    mainClassName = "HelloWorld"
 }
 
 defaultTasks "launchConsole"
@@ -48,14 +23,11 @@ clean {
 }
 
 sourceSets {
-
     test {
         java {
             srcDirs = ["src/test"]
         }
-
     }
-
 }
 
 test {
@@ -63,16 +35,4 @@ test {
     testLogging {
         events "passed", "skipped", "failed", "standardOut", "standardError"
     }
-}
-
-
-task listJars {
-    doLast {
-        configurations.runtime.each { File file -> println file.name }
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = "3.5.1"
-    distributionType = Wrapper.DistributionType.ALL
 }
