@@ -3,7 +3,7 @@ version = "1.0.1"
 
 buildscript {
     ext {
-        bugvm_version = "1.2.3"
+        bugvm_version = "1.2.4"
     }
     repositories {
         mavenLocal()
@@ -28,11 +28,6 @@ repositories {
     mavenLocal()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     mavenCentral()
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = "3.5"
-    distributionType = Wrapper.DistributionType.ALL
 }
 
 defaultTasks "launchConsole"
@@ -75,4 +70,9 @@ task listJars {
     doLast {
         configurations.runtime.each { File file -> println file.name }
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "3.5.1"
+    distributionType = Wrapper.DistributionType.ALL
 }
