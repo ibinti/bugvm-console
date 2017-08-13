@@ -17,12 +17,11 @@ On Ubuntu 16.04 (64-bit), you may need following build tools.
  apt install make
  apt install cmake
  apt install g++
+ apt install g++-multilib
  apt install libcap-dev
+ apt install libxml2-dev
  apt install zlib1g-dev
  apt install openjdk-8-jdk
- apt install g++-multilib
- apt install gcc-multilib
- apt install libxml2-dev
  ```
 
 ### Build and execute native console executable
