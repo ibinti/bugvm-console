@@ -1,0 +1,38 @@
+group = "com.bugvm"
+version = "1.0.1"
+
+build {
+    mainClassName = "HelloWorld"
+}
+
+defaultTasks "launchConsole"
+
+launchConsole {
+    dependsOn build
+    doLast {
+        copy {
+            from("build/bugvm.tmp/${mainClassName}")
+            into "bin"
+        }
+        println "binary executable is 'bin/${mainClassName}'"
+    }
+}
+
+clean {
+    delete "bin"
+}
+
+sourceSets {
+    test {
+        java {
+            srcDirs = ["src/test"]
+        }
+    }
+}
+
+test {
+    //exclude "**/Core*"
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
