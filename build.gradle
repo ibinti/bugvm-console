@@ -36,6 +36,7 @@ defaultTasks "launchConsole"
 
 launchConsole {
     mainClassName = "HelloWorld"
+    dependsOn build
     doLast {
         copy {
             from("build/bugvm.tmp/${mainClassName}")
