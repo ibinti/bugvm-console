@@ -19,12 +19,16 @@ apply plugin: "bugvm"
 apply plugin: "kotlin"
 apply plugin: "application"
 
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
     compile "com.bugvm:bugvm-rt:${bugvm_version}"
+    //compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
 }
 
 task wrapper(type: Wrapper) {
@@ -32,10 +36,14 @@ task wrapper(type: Wrapper) {
     distributionType = Wrapper.DistributionType.ALL
 }
 
+build {
+    mainClassName = "HelloWorld"
+}
+
 defaultTasks "launchConsole"
 
 launchConsole {
-    mainClassName = "HelloWorld"
+    dependsOn build
     doLast {
         copy {
             from("build/bugvm.tmp/${mainClassName}")
