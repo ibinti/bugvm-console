@@ -3,3 +3,5 @@
 .iml
 build
 local.properties
+
+bin/HelloWorld
