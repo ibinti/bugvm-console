@@ -1,13 +1,22 @@
-# Kotlin HelloWorld Example
+# BugVM HelloWorld Console Examples
+
+### Git Clone
+
+```
+git clone https://github.com/bugvm/bugvm-helloworld
+```
 
 ### System Requirements
 
 On macOS, Xcode8 and JDK8 are needed to build.
 
+Minimum iOS 7.0.
+
 On Ubuntu 16.04 (64-bit), you may need following build tools.
 
  ```
  apt install git
+ apt install make
  apt install cmake
  apt install g++
  apt install libcap-dev
@@ -20,6 +29,7 @@ On Ubuntu 16.04 (64-bit), you may need following build tools.
 
 
 ### Build and execute native console executable
+
 
 ```
 ./gradlew -q
