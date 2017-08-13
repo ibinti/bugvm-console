@@ -3,12 +3,10 @@
  */
 buildscript {
     ext {
-        bugvm_version = "1.2.5-SNAPSHOT"
+        bugvm_version = "1.2.5"
         kotlin_version = "1.1.3"
     }
     repositories {
-        mavenLocal()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         mavenCentral()
     }
     dependencies {
@@ -17,53 +15,44 @@ buildscript {
     }
 }
 
-allprojects {
+apply plugin: "bugvm"
+apply plugin: "kotlin"
+apply plugin: "application"
 
-    apply plugin: "bugvm"
-    apply plugin: "kotlin"
-    apply plugin: "application"
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
-    sourceCompatibility = 1.7
-    targetCompatibility = 1.7
+repositories {
+    mavenCentral()
+}
 
-    repositories {
-        mavenLocal()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-        mavenCentral()
-    }
+dependencies {
+    compile "com.bugvm:bugvm-rt:${bugvm_version}"
+    //compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
+}
 
-    dependencies {
-        compile "com.bugvm:bugvm-rt:${bugvm_version}"
-        compile "com.bugvm:bugvm-apple:${bugvm_version}"
-        compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
-    }
+task wrapper(type: Wrapper) {
+    gradleVersion = "4.1"
+    distributionType = Wrapper.DistributionType.ALL
+}
 
-    task sim {
-        dependsOn launchIPhoneSimulator, build, clean
-        launchIPhoneSimulator.mustRunAfter build
-        build.mustRunAfter clean
-    }
+build {
+    mainClassName = "HelloWorld"
+}
 
-    task pad {
-        dependsOn launchIPadSimulator, build, clean
-        launchIPhoneSimulator.mustRunAfter build
-        build.mustRunAfter clean
-    }
+defaultTasks "launchConsole"
 
-    task dev {
-        dependsOn launchIOSDevice, build, clean
-        launchIOSDevice.mustRunAfter build
-        build.mustRunAfter clean
-    }
-
-    task listJars {
-        doLast {
-            configurations.runtime.each { File file -> println file.name }
+launchConsole {
+    dependsOn build
+    doLast {
+        copy {
+            from("build/bugvm.tmp/${mainClassName}")
+            into "bin"
         }
+        println "binary executable is 'bin/${mainClassName}'"
     }
+}
 
-    task wrapper(type: Wrapper) {
-        gradleVersion = "4.0.1"
-        distributionType = Wrapper.DistributionType.ALL
-    }
+clean {
+    delete "bin"
 }
