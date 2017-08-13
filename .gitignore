@@ -2,6 +2,4 @@
 .gradle
 .iml
 build
-local.properties
-
-bin/HelloWorld
+bin
