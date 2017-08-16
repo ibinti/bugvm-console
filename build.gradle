@@ -1,6 +1,3 @@
-/*
- * bugvm-helloworld
- */
 buildscript {
     ext {
         bugvm_version = "1.2.5"
@@ -10,8 +7,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.bugvm:bugvm-gradle:${bugvm_version}"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
+        classpath "com.bugvm:bugvm-gradle:$bugvm_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -24,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    compile "com.bugvm:bugvm-rt:${bugvm_version}"
+    compile "com.bugvm:bugvm-rt:$bugvm_version"
 }
 
 task wrapper(type: Wrapper) {
@@ -38,10 +35,10 @@ launchConsole {
     dependsOn build
     doLast {
         copy {
-            from("build/bugvm.tmp/${mainClassName}")
+            from("build/bugvm.tmp/$mainClassName")
             into "bin"
         }
-        println "binary executable is 'bin/${mainClassName}'"
+        println "binary executable is 'bin/$mainClassName'"
     }
 }
 

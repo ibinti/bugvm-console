@@ -4,6 +4,7 @@
 
 ```
 git clone https://github.com/bugvm/bugvm-helloworld
+cd bugvm-helloworld
 ```
 
 ### System Requirements
