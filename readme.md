@@ -3,18 +3,17 @@
 ### Git Clone
 
 ```
-git clone https://github.com/bugvm/bugvm-helloworld
-cd bugvm-helloworld
+git clone https://github.com/ibinti/bugvm-helloworld hello
+cd hello
 ```
 
 ### System Requirements
 
 On macOS, Xcode8 and JDK8 are needed to build.
 
-On Ubuntu 16.04 (64-bit), you may need following build tools.
+On 64-bit Ubuntu 18.04, 16.04, you may need following build tools.
 
  ```
- apt install git
  apt install make
  apt install cmake
  apt install g++
