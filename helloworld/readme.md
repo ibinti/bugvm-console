@@ -3,8 +3,8 @@
 ### Git Clone
 
 ```
-git clone https://github.com/ibinti/bugvm-helloworld hello
-cd hello
+git clone https://github.com/ibinti/bugvm-console console
+cd console/helloworld
 ```
 
 ### System Requirements
